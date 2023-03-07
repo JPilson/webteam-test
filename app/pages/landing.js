@@ -18,6 +18,10 @@ const idesLogoListContainer = document.querySelector(".js-ides-reference")
 const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
 const idesDetailsReference = document.querySelector(".js-ides-details-reference")
 const pluginsDetailsReference = document.querySelector(".js-plugin-extensions-reference")
+/**
+ *
+ * @type {{name: string, logo: *, label: string, tags: string[]}[]}
+ */
 const idesList = [
   {name: "intellijIdeaCe", logo: intellijIdeaCe, label: "IntelliJ IDEA Ultimate", tags: ["Kotlin", "Java"]},
   {name: "webstorm", logo: webstorm, label: "WebStorm", tags: ["Javascript", "Typescript"]},
@@ -31,6 +35,10 @@ const idesList = [
   {name: "pycharm", logo: pycharm, label: "PyCharm", tags: ["Python"]},
 
 ]
+/**
+ *
+ * @type {{name: string, logo: *, label: string, tags: string[]}[]}
+ */
 const extensionAndProfilers = [
   {name: "resharper", logo: resharper, label: "ReSharper Ultimate", tags: ["C++"]},
   {name: "resharperCpp", logo: resharperCpp, label: "ReSharper C++", tags: ["C++"]},
@@ -52,6 +60,12 @@ extensionAndProfilers.forEach(it => {
   addToDetailsContainer(it,pluginsDetailsReference)
 })
 
+
+/**
+ *
+ * @param ide {{name: string, logo: *, label: string, tags: string[]}}
+ * @param container {HTMLElement}
+ */
 function addLogoToContainer(ide, container) {
   const img = document.createElement("img")
   img.src = ide.logo
@@ -59,6 +73,11 @@ function addLogoToContainer(ide, container) {
   container.appendChild(img)
 }
 
+/**
+ * Adds Ide description into the description container
+ * @param ide {{name: string, logo: *, label: string, tags: string[]}}
+ * @param container {HTMLElement}
+ */
 function addToDetailsContainer(ide, container) {
   const itemDiv = document.createElement("div")
   const name = document.createElement("span")
@@ -75,6 +94,7 @@ function addToDetailsContainer(ide, container) {
     tag.textContent = it.toString()
     tagsDiv.appendChild(tag)
   })
+
   itemDiv.appendChild(name)
   itemDiv.appendChild(tagsDiv)
 
