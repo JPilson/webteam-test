@@ -14,41 +14,69 @@ import dotmemory from "@jetbrains/logos/dotmemory/dotmemory.svg";
 import dottrace from "@jetbrains/logos/dottrace/dottrace.svg";
 
 
-const idesListContainer = document.querySelector(".ides-list")
-const extensionPluginsContainer = document.querySelector(".extension-plugins")
+const idesLogoListContainer = document.querySelector(".js-ides-reference")
+const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
+const idesDetailsReference = document.querySelector(".js-ides-details-reference")
+const pluginsDetailsReference = document.querySelector(".js-plugin-extensions-reference")
 const idesList = [
-  {name: "intellijIdeaCe", logo: intellijIdeaCe,label:"IntelliJ IDEA Ultimate",tags:["Kotlin","Java"]},
-  {name: "webstorm", logo: webstorm,label:"WebStorm",tags:["Javascript","Typescript"]},
-  {name: "resharper", logo: resharper,label:"ReSharper Ultimate",tags:["C++"]},
-  {name: "rider", logo: rider,label:"Rider",tags:["C#",".NET"]},
-  {name: "appcode", logo: appcode,label:"AppCode",tags:["IOS","SWIFT"]},
-  {name: "clion", logo: clion,label:"CLion",tags:["C","C++"]},
-  {name: "rubymine", logo: rubymine,label:"RubyMine",tags:["Ruby","Rails"]},
-  {name: "datagrip", logo: datagrip,label:"DataGrip",tags:["mysql"]},
-  {name: "phpstorm", logo: phpstorm,label:"PhpStorm",tags:["Php","Database"]},
-  {name: "pycharm", logo: pycharm,label:"PyCharm",tags:["Python"]},
+  {name: "intellijIdeaCe", logo: intellijIdeaCe, label: "IntelliJ IDEA Ultimate", tags: ["Kotlin", "Java"]},
+  {name: "webstorm", logo: webstorm, label: "WebStorm", tags: ["Javascript", "Typescript"]},
+  {name: "resharper", logo: resharper, label: "ReSharper Ultimate", tags: ["C++"]},
+  {name: "rider", logo: rider, label: "Rider", tags: ["C#", ".NET"]},
+  {name: "appcode", logo: appcode, label: "AppCode", tags: ["IOS", "SWIFT"]},
+  {name: "clion", logo: clion, label: "CLion", tags: ["C", "C++"]},
+  {name: "rubymine", logo: rubymine, label: "RubyMine", tags: ["Ruby", "Rails"]},
+  {name: "datagrip", logo: datagrip, label: "DataGrip", tags: ["mysql"]},
+  {name: "phpstorm", logo: phpstorm, label: "PhpStorm", tags: ["Php", "Database"]},
+  {name: "pycharm", logo: pycharm, label: "PyCharm", tags: ["Python"]},
 
 ]
 const extensionAndProfilers = [
-  {name: "resharper", logo: resharper,label:"ReSharper Ultimate",tags:["C++"]},
-  {name: "resharperCpp", logo: resharperCpp,label:"ReSharper C++",tags:["C++"]},
-  {name: "dotcover", logo: dotcover,label:"dotCover",tags:[".Net","Test"]},
-  {name: "dotmemory", logo: dotmemory,label:"dotMemory",tags:[".Net","Test"]},
-  {name: "dottrace", logo: dottrace,label:"dotTrace",tags:[".Net","Test"]}
+  {name: "resharper", logo: resharper, label: "ReSharper Ultimate", tags: ["C++"]},
+  {name: "resharperCpp", logo: resharperCpp, label: "ReSharper C++", tags: ["C++"]},
+  {name: "dotcover", logo: dotcover, label: "dotCover", tags: [".Net", "Test"]},
+  {name: "dotmemory", logo: dotmemory, label: "dotMemory", tags: [".Net", "Test"]},
+  {name: "dottrace", logo: dottrace, label: "dotTrace", tags: [".Net", "Test"]}
 
 ]
 
 
 idesList.forEach(it => {
-  const img = document.createElement("img")
-  img.src = it.logo
-  img.alt = it.name
-  idesListContainer.appendChild(img)
+  addLogoToContainer(it, idesLogoListContainer)
+  addToDetailsContainer(it,idesDetailsReference)
+
 })
 
-extensionAndProfilers.forEach(it=>{
-  const img = document.createElement("img")
-  img.src = it.logo
-  img.alt = it.name
-  extensionPluginsContainer.appendChild(img)
+extensionAndProfilers.forEach(it => {
+  addLogoToContainer(it, extensionPluginsLogosContainer)
+  addToDetailsContainer(it,pluginsDetailsReference)
 })
+
+function addLogoToContainer(ide, container) {
+  const img = document.createElement("img")
+  img.src = ide.logo
+  img.alt = ide.name
+  container.appendChild(img)
+}
+
+function addToDetailsContainer(ide, container) {
+  const itemDiv = document.createElement("div")
+  const name = document.createElement("span")
+  const tagsDiv = document.createElement("div")
+
+  itemDiv.classList.add("ide-list-item")
+  name.classList.add("ide-list-item-name")
+  tagsDiv.classList.add("ide-list-item-tags")
+  name.textContent = ide.label
+
+  ide.tags.forEach(it => {
+    const tag = document.createElement("span")
+    tag.classList.add("tag")
+    tag.textContent = it.toString()
+    tagsDiv.appendChild(tag)
+  })
+  itemDiv.appendChild(name)
+  itemDiv.appendChild(tagsDiv)
+
+  container.appendChild(itemDiv)
+}
