@@ -4,6 +4,7 @@ import fallbackStylesheetUrl from '!!file-loader!./exterrnal-libs/layout/layout-
 import { supportsCssVars, createLink } from './exterrnal-libs/layout/utils';
 import './index.entry.pcss';
 import './exterrnal-libs/breakpoints/index.css';
+import './pages/landing.pcss'
 
 if (!supportsCssVars()) {
   createLink(fallbackStylesheetUrl);
