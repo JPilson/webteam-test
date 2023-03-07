@@ -1,22 +1,99 @@
 .page-menu {
-  background-color: #4ca6ff;
   height: 71px;
+  border-bottom: 1px solid rgba(39, 40, 44, 0.4);
+  padding-inline: 24px;
 }
+button {
+  border-radius: 25px;
+  padding: 12px;
+  background: none;
+  span{
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+  }
+}
+.primary-button {
+
+}
+.flat-button {
+  border: none;
+}
+.outlined-btn {
+
+  border: solid 1px rgba(39, 40, 44, 0.4);
+  padding: 2px 32px ;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  .img1 {
+    image {
+      width: 484px;
+      height: 368px;
+      object-fit: contain;
+    }
+  }
+
+  .all-product {
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.07;
+      letter-spacing: -1.5px;
+    }
+
+    h5 {
+      font-size: 28px;
+      font-weight: 300;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+    }
+    button {
+
+      background-color: #f76707;
+      border: none;
+      color: white;
+      height: 48px;
+      width: 174px;
+    }
+    p {
+      color: rgba(39, 40, 44, 0.7);
+    }
+
+
+  }
+}
+
 .product-section {
-   .ide-descriptions {
-     background-color: #4ca6ff;
-     .ide-description {
-       h5 { color: #4dbb5f}
-       .ide-tags {
-         *{
-           background-color: #afb1b3;
-         }
-       }
-     }
-   }
+  .ide-descriptions {
+    background-color: #4ca6ff;
+
+    .ide-description {
+      h5 {
+        color: #4dbb5f
+      }
+
+      .ide-tags {
+        * {
+          background-color: #afb1b3;
+        }
+      }
+    }
+  }
+
   .ide-count {
 
   }
+
   .ide-logos {
     background-color: #4ca6ff;
   }

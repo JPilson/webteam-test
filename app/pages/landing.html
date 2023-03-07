@@ -8,53 +8,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="wt-row wt-row_justify_between wt-row_align-items_center page-menu">
-    <div class="">
+<div class=" wt-row wt-row_justify_between wt-row_align-items_center page-menu">
+    <div>
         <span>Toolbox</span>
     </div>
-    <div class="wt-row wt-row_justify_around" >
-        <button>Overview</button>
-        <button>Toolbox App</button>
-        <button>Buy Now</button>
+    <div class="wt-row wt-row_justify_around wt-row-lg_align-items_baseline">
+        <button class="flat-button">Overview</button>
+        <button class="flat-button">Toolbox App</button>
+        <button class="flat-button outlined-btn"><span>Buy Now</span></button>
     </div>
 </div>
-    <div class="wt-container">
-        <div class="wt-section wt-row wt-row_size_m">
-            <div class="wt-col-6"  >
-                illustration
-            </div>
-            <div class="wt-col-6" >
-                illustration
-            </div>
-
+<div class="wt-container">
+    <div class="hero wt-section wt-offset-top-96">
+        <div class="wt-col  wt-col_align-self_center">
+            <img src="static/img-1.png"
+                 srcset="static/img-1@2x.png 2x,
+                     static/img-1@3x.png 3x"
+                 class="img1" alt="im-1">
         </div>
-        <div class="wt-section product-section">
-            <div class="wt-row wt-row_size_m ides">
-                <div class="wt-col-6 ide-logos"  >
-                     <h4 class="ide-count">10 IDEs</h4>
-                    <div class="ides-logos-grid" style="display: grid;grid-template-columns: repeat(4,72px)">
-
-                    </div>
-                </div>
-                <div class="wt-col-6 ide-descriptions" >
-                    <p class="ide-general-description">Get access to all JetBrains desktop tools including 10 IDEs, 2 extensions and 3 profilers</p>
-                    <div class="ide-description">
-                        <h5>IDE NAME</h5>
-                        <div class="ide-tags">
-                            <span>Tag 1</span>
-                            <span>Tag 2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="wt-col all-product ">
+            <h1>All Products Pack</h1>
+            <h5 class="wt-offset-top-24">The complete full-stack<br>developer toolkit</h5>
+            <button class="wt-offset-top-48"><span>I Want it All</span></button>
+            <p class="wt-offset-top-24">An upgrade and switch option available </p>
         </div>
 
-<!--        <div class="wt-row wt-row_size_m wt-row_justify_center wt-offset-top-96">-->
-<!--            <div class="wt-col-inline text-1 text-1_theme_dark">-->
-<!--                    Landing page-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
+    <div class="wt-section product-section">
+        <div class="wt-row wt-row_size_m ides">
+            <div class="wt-col-6 ide-logos">
+                <h4 class="ide-count">10 IDEs</h4>
+                <div class="ides-logos-grid" style="display: grid;grid-template-columns: repeat(4,72px)">
+
+                </div>
+            </div>
+            <div class="wt-col-6 ide-descriptions">
+                <p class="ide-general-description">Get access to all JetBrains desktop tools including 10 IDEs, 2
+                    extensions and 3 profilers</p>
+                <div class="ide-description">
+                    <h5>IDE NAME</h5>
+                    <div class="ide-tags">
+                        <span>Tag 1</span>
+                        <span>Tag 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--        <div class="wt-row wt-row_size_m wt-row_justify_center wt-offset-top-96">-->
+    <!--            <div class="wt-col-inline text-1 text-1_theme_dark">-->
+    <!--                    Landing page-->
+    <!--            </div>-->
+    <!--        </div>-->
+</div>
 </body>
 </html>
