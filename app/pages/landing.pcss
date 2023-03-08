@@ -1,3 +1,7 @@
+.grid-col-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .page-menu {
   height: 71px;
   padding-inline: 24px;
@@ -70,8 +74,6 @@ button:hover {
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 
   .img1 {
     image {
@@ -146,6 +148,33 @@ button:hover {
       }
     }
   }
-
-
+}
+.key-value {
+  .illustration {
+    width: 411px;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .icon {
+      max-width: 48px;
+    }
+    .headline {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.4;
+      color: #27282c;
+    }
+    .description {
+      font-size: 14px;
+      line-height: 1.56;
+      color: rgba(39, 40, 44, 0.7);
+    }
+  }
 }
