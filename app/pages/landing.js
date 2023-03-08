@@ -18,6 +18,7 @@ const idesLogoListContainer = document.querySelector(".js-ides-reference")
 const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
 const idesDetailsReference = document.querySelector(".js-ides-details-reference")
 const pluginsDetailsReference = document.querySelector(".js-plugin-extensions-reference")
+const trustedBusinessLogosContainer = document.querySelector(".business-logos")
 /**
  *
  * @type {{name: string, logo: *, label: string, tags: string[]}[]}
@@ -47,6 +48,8 @@ const extensionAndProfilers = [
   {name: "dottrace", logo: dottrace, label: "dotTrace", tags: [".Net", "Test"]}
 
 ]
+const trustedBusinessLogosImageNameList = ["google-2015-logo","hphewlett-packardlogo","samsung-logo",
+  "salesforce-2","expedia","twitter-logo-blue"]
 
 
 idesList.forEach(it => {
@@ -58,6 +61,16 @@ idesList.forEach(it => {
 extensionAndProfilers.forEach(it => {
   addLogoToContainer(it, extensionPluginsLogosContainer)
   addToDetailsContainer(it,pluginsDetailsReference)
+})
+trustedBusinessLogosImageNameList.forEach(it =>{
+
+  const div = document.createElement("div")
+  div.classList.add("wt-col","wt-col_align-self_center")
+  const img = document.createElement("img")
+  img.src = `static/${it}.png`
+  img.alt = it
+  div.appendChild(img)
+  trustedBusinessLogosContainer.appendChild(div)
 })
 
 
