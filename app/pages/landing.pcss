@@ -1,7 +1,8 @@
-.grid-col-2{
+.grid-col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 .page-menu {
   height: 71px;
   padding-inline: 24px;
@@ -100,7 +101,7 @@ button:hover {
 }
 
 .product-section {
-  .ide{
+  .ide {
     &-count {
       font-size: 31px;
       font-weight: 500;
@@ -108,36 +109,43 @@ button:hover {
       letter-spacing: -0.5px;
       color: #27282c;
     }
+
     &-logos-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 48px
     }
+
     &-description {
-      &-text{
+      &-text {
         font-size: 18px;
         line-height: 1.56;
 
       }
     }
   }
+
   .ide-list {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    &-item{
+
+    &-item {
       display: flex;
       flex-direction: column;
       gap: 15px;
+
       &-name {
         font-size: 20px;
         font-weight: 500;
         line-height: 1.4;
         color: #27282c;
       }
+
       &-tags {
         gap: 10px;
-        .tag{
+
+        .tag {
           padding: 8px 24px;
           margin-inline: 2px;
           font-size: 12px;
@@ -149,32 +157,60 @@ button:hover {
     }
   }
 }
+
 .key-value {
   .illustration {
     width: 411px;
   }
+
   &-list {
     display: flex;
     flex-direction: column;
     gap: 48px;
+
     div {
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
+
     .icon {
       max-width: 48px;
     }
+
     .headline {
       font-size: 18px;
       font-weight: bold;
       line-height: 1.4;
       color: #27282c;
     }
+
     .description {
       font-size: 14px;
       line-height: 1.56;
       color: rgba(39, 40, 44, 0.7);
+    }
+  }
+}
+
+.preview {
+  &-section{
+    color: white;
+  }
+  &-screenshot {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+  &-description {
+    max-width: 458px;
+    p{
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.56;
+    }
+    button {
+      padding: 0;
+      color: var(--tomato);
     }
   }
 }
