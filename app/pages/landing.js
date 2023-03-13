@@ -1,4 +1,4 @@
-import intellijIdeaCe from "@jetbrains/logos/intellij-idea-ce/intellij-idea-ce.svg";
+import intellijIdea from "@jetbrains/logos/intellij-idea/intellij-idea.svg";
 import webstorm from "@jetbrains/logos/webstorm/webstorm.svg";
 import resharper from "@jetbrains/logos/resharper/resharper.svg";
 import resharperCpp from "@jetbrains/logos/resharper-cpp/resharper-cpp.svg";
@@ -24,7 +24,7 @@ const trustedBusinessLogosContainer = document.querySelector(".business-logos")
  * @type {{name: string, logo: *, label: string, tags: string[]}[]}
  */
 const idesList = [
-  {name: "intellijIdeaCe", logo: intellijIdeaCe, label: "IntelliJ IDEA Ultimate", tags: ["Kotlin", "Java"]},
+  {name: "intellijIdeaCe", logo: intellijIdea, label: "IntelliJ IDEA Ultimate", tags: ["Kotlin", "Java"]},
   {name: "webstorm", logo: webstorm, label: "WebStorm", tags: ["Javascript", "Typescript"]},
   {name: "resharper", logo: resharper, label: "ReSharper Ultimate", tags: ["C++"]},
   {name: "rider", logo: rider, label: "Rider", tags: ["C#", ".NET"]},
