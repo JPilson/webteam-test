@@ -13,12 +13,14 @@ import dotcover from "@jetbrains/logos/dotcover/dotcover.svg";
 import dotmemory from "@jetbrains/logos/dotmemory/dotmemory.svg";
 import dottrace from "@jetbrains/logos/dottrace/dottrace.svg";
 
-
+const IDE_PREFIX = "ide";
+const EXTENSION_PREFIX = "ex"
 const idesLogoListContainer = document.querySelector(".js-ides-reference")
 const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
 const idesDetailsReference = document.querySelector(".js-ides-details-reference")
 const pluginsDetailsReference = document.querySelector(".js-plugin-extensions-reference")
 const trustedBusinessLogosContainer = document.querySelector(".business-logos")
+
 /**
  *
  * @type {{name: string, logo: *, label: string, tags: string[]}[]}
@@ -53,17 +55,16 @@ const trustedBusinessLogosImageNameList = ["google-2015-logo","hphewlett-packard
 
 
 idesList.forEach(it => {
-  addLogoToContainer(it, idesLogoListContainer)
-  addToDetailsContainer(it,idesDetailsReference)
+  addLogoToContainer(it, idesLogoListContainer,`logo_${IDE_PREFIX}`)
+  addToDetailsContainer(it,idesDetailsReference,IDE_PREFIX)
 
 })
 
 extensionAndProfilers.forEach(it => {
-  addLogoToContainer(it, extensionPluginsLogosContainer)
-  addToDetailsContainer(it,pluginsDetailsReference)
+  addLogoToContainer(it, extensionPluginsLogosContainer,`logo_${EXTENSION_PREFIX}`)
+  addToDetailsContainer(it,pluginsDetailsReference,EXTENSION_PREFIX)
 })
 trustedBusinessLogosImageNameList.forEach(it =>{
-
   const div = document.createElement("div")
   div.classList.add("wt-col","wt-col_align-self_center")
   const img = document.createElement("img")
@@ -78,11 +79,13 @@ trustedBusinessLogosImageNameList.forEach(it =>{
  *
  * @param ide {{name: string, logo: *, label: string, tags: string[]}}
  * @param container {HTMLElement}
+ * @param idPrefix
  */
-function addLogoToContainer(ide, container) {
+function addLogoToContainer(ide, container,idPrefix = '') {
   const img = document.createElement("img")
   img.src = ide.logo
   img.alt = ide.name
+  img.id = `${idPrefix}_${ide.name}`
   container.appendChild(img)
 }
 
@@ -90,12 +93,14 @@ function addLogoToContainer(ide, container) {
  * Adds Ide description into the description container
  * @param ide {{name: string, logo: *, label: string, tags: string[]}}
  * @param container {HTMLElement}
+ * @param idPrefix
  */
-function addToDetailsContainer(ide, container) {
+function addToDetailsContainer(ide, container,idPrefix = '') {
   const itemDiv = document.createElement("div")
   const name = document.createElement("span")
   const tagsDiv = document.createElement("div")
-
+  const id = `${idPrefix}_${ide.name}`
+  itemDiv.setAttribute("id",id)
   itemDiv.classList.add("ide-list-item")
   name.classList.add("ide-list-item-name")
   tagsDiv.classList.add("ide-list-item-tags")
@@ -107,7 +112,23 @@ function addToDetailsContainer(ide, container) {
     tag.textContent = it.toString()
     tagsDiv.appendChild(tag)
   })
+  const logoRef = document.querySelector(`#logo_${id}`)
 
+  itemDiv.addEventListener("mouseover",(it)=>{
+      const parent = logoRef.parentNode
+      // name.classList.remove("ide-list-item-name")
+      for (let child of parent.children) {
+      if(child.id !== logoRef.id){
+        child.classList.add("opaque-element")
+      }
+    }
+  })
+  itemDiv.addEventListener("mouseout",(it)=>{
+    // name.classList.add("ide-list-item-name")
+    for (let child of logoRef.parentNode.children) {
+      child.classList.remove("opaque-element")
+    }
+  })
   itemDiv.appendChild(name)
   itemDiv.appendChild(tagsDiv)
 
