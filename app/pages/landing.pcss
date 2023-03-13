@@ -1,6 +1,9 @@
 .grid-col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media (--sm) {
+    grid-template-columns: 1fr ;
+  }
 }
 
 .page-menu {
@@ -20,19 +23,6 @@
   border-bottom: 2px solid rgba(39, 40, 44, 0.08);
 }
 
-.hero-text {
-  font-size: 60px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.07;
-  letter-spacing: -1.5px;
-
-  &_theme_dark {
-    color: red;
-  }
-
-}
 
 h5 {
   font-size: 28px;
@@ -64,6 +54,8 @@ button:hover {
 
 .primary-button {
   background-color: var(--tomato);
+  color: white;
+  min-width: 174px;
 }
 
 .flat-button {
@@ -78,28 +70,41 @@ button:hover {
 
 .hero {
 
-  .img1 {
-    image {
-      width: 484px;
-      height: 368px;
-      object-fit: contain;
+  &-header {
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 1.07;
+    letter-spacing: -1.5px;
+  }
+
+  &-description {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.33;
+    color: #27282c;
+  }
+  img {
+    max-width: 463px;
+    object-fit: contain;
+  }
+
+  @media (--sm) {
+    &-header {
+      font-size: 42px;
+    }
+    &-description {
+      font-size: 24px;
+    }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+
     }
   }
 
-  .all-product {
-    button {
-      border: none;
-      color: white;
-      height: 48px;
-      width: 174px;
-    }
 
-    p {
-      color: rgba(39, 40, 44, 0.7);
-    }
-
-
-  }
 }
 
 .opaque-element {
@@ -120,6 +125,9 @@ button:hover {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 48px;
+      @media (--sm) {
+        display: none;
+      }
 
       * {
         transition-duration: 700ms;

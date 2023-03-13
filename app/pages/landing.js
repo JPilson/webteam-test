@@ -2,7 +2,8 @@ import intellijIdea from "@jetbrains/logos/intellij-idea/intellij-idea.svg";
 import webstorm from "@jetbrains/logos/webstorm/webstorm.svg";
 import resharper from "@jetbrains/logos/resharper/resharper.svg";
 import resharperCpp from "@jetbrains/logos/resharper-cpp/resharper-cpp.svg";
-import rider from "@jetbrains/logos/rider/rider.svg";
+import rider from "@jetbrains/logos/rider/rider.svg"
+
 import appcode from "@jetbrains/logos/appcode/appcode.svg";
 import clion from "@jetbrains/logos/clion/clion.svg";
 import rubymine from "@jetbrains/logos/rubymine/rubymine.svg";
