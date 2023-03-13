@@ -187,9 +187,9 @@ button:hover {
   }
 }
 
-.key-value {
+.key-value-section {
   .illustration {
-    width: 411px;
+    max-width: 411px;
   }
 
   &-list {
@@ -209,7 +209,7 @@ button:hover {
 
     .headline {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 500;
       line-height: 1.4;
       color: #27282c;
     }
@@ -218,6 +218,16 @@ button:hover {
       font-size: 14px;
       line-height: 1.56;
       color: rgba(39, 40, 44, 0.7);
+    }
+  }
+  @media (--sm) {
+    .illustration {
+      display: none;
+    }
+    &-list {
+      img {
+        max-width: 48px;
+      }
     }
   }
 }
@@ -235,15 +245,21 @@ button:hover {
 
   &-description {
     max-width: 458px;
-
     p {
       color: rgba(255, 255, 255, 0.6);
       line-height: 1.56;
     }
-
     button {
       padding: 0;
       color: var(--tomato);
+    }
+  }
+  @media (--sm) {
+    &-screenshot {
+      display: none;
+    }
+    &-description {
+      padding: 64px 2px;
     }
   }
 }
@@ -252,6 +268,7 @@ button:hover {
   img {
     display: block;
     margin-inline: auto;
+    max-width: 177px;
   }
 
   p {
@@ -267,30 +284,61 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
   }
+  @media (--sm) {
+    img {
+      max-width: 156px;
+    }
+    p {
+      font-size: 24px;
+      max-width: 312px;
+      padding-bottom: 24px;
+      line-height: 1.33;
+    }
+    .business-logos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
-.faq {
-  div {
-    max-width: 450px;
-  }
+.faq-section {
 
+  .grid-col-2 {
+    gap: 32px ;
+    div {
+      max-width: 450px;
+    }
+  }
+  .faq {
+    font-size: 31px;
+    font-weight: bold;
+    color: #27282c;
+    padding: 24px 1px;
+  }
   .question {
     font-size: 18px;
     font-weight: 500;
     color: #27282c;
-    line-height: normal;
-    letter-spacing: normal;
     max-width: 480px;
+    line-height: 1.56;
   }
 
   .response {
     font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.56;
-    letter-spacing: normal;
     color: rgba(39, 40, 44, 0.7);
+  }
+  @media (--sm) {
+    .faq {
+      font-size: 24px;
+    }
+    .question {
+      font-size: 14px;
+      max-width: 458px;
+
+    }
+    .response{
+      font-size: 12px;
+    }
   }
 }
 
