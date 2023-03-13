@@ -15,6 +15,7 @@ import dottrace from "@jetbrains/logos/dottrace/dottrace.svg";
 
 const IDE_PREFIX = "ide";
 const EXTENSION_PREFIX = "ex"
+const  isMobile =  ( window.innerWidth <= 640 )
 const idesLogoListContainer = document.querySelector(".js-ides-reference")
 const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
 const idesDetailsReference = document.querySelector(".js-ides-details-reference")
@@ -112,25 +113,30 @@ function addToDetailsContainer(ide, container,idPrefix = '') {
     tag.textContent = it.toString()
     tagsDiv.appendChild(tag)
   })
-  const logoRef = document.querySelector(`#logo_${id}`)
+  if(!isMobile){
+    const logoRef = document.querySelector(`#logo_${id}`)
 
-  itemDiv.addEventListener("mouseover",(it)=>{
+    itemDiv.addEventListener("mouseover",(it)=>{
       const parent = logoRef.parentNode
       // name.classList.remove("ide-list-item-name")
       for (let child of parent.children) {
-      if(child.id !== logoRef.id){
-        child.classList.add("opaque-element")
+        if(child.id !== logoRef.id){
+          child.classList.add("opaque-element")
+        }
       }
-    }
-  })
-  itemDiv.addEventListener("mouseout",(it)=>{
-    // name.classList.add("ide-list-item-name")
-    for (let child of logoRef.parentNode.children) {
-      child.classList.remove("opaque-element")
-    }
-  })
+    })
+    itemDiv.addEventListener("mouseout",(it)=>{
+      // name.classList.add("ide-list-item-name")
+      for (let child of logoRef.parentNode.children) {
+        child.classList.remove("opaque-element")
+      }
+    })
+  }
+
   itemDiv.appendChild(name)
   itemDiv.appendChild(tagsDiv)
 
   container.appendChild(itemDiv)
 }
+
+console.log(`Is Mobile ${isMobile}`)
