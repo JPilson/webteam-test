@@ -125,9 +125,6 @@ button:hover {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 48px;
-      @media (--sm) {
-        display: none;
-      }
 
       * {
         transition-duration: 700ms;
@@ -139,6 +136,7 @@ button:hover {
 
     }
 
+
     &-description {
       &-text {
         font-size: 18px;
@@ -148,7 +146,6 @@ button:hover {
     }
 
   }
-
   .ide-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -184,6 +181,18 @@ button:hover {
         }
       }
     }
+  }
+  @media (--sm) {
+    .ide{
+      &-logos {
+        display: none;
+      }
+      &-list{
+
+      }
+    }
+
+
   }
 }
 
