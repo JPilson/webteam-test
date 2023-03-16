@@ -11,6 +11,7 @@ if (!supportsCssVars()) {
   createLink(fallbackStylesheetUrl);
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
 });

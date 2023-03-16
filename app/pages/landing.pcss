@@ -9,6 +9,33 @@
 .page-menu {
   height: 71px;
   padding-inline: 24px;
+
+  @media (--sm) {
+    display: none;
+  }
+}
+.sm-only {
+  display: none;
+  @media (--sm) {
+    display: block;
+  }
+}
+
+
+.drop-down-menu-content {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 0;
+  overflow: hidden;
+  height: 0;
+  width: 90%;
+  z-index: 1000;
+  top: -30px;
+  padding-inline: 20px;
+  background-color: white;
+  border-bottom: 2px solid rgba(39, 40, 44, 0.08);
 }
 
 
@@ -83,18 +110,24 @@ button:hover {
     line-height: 1.33;
     color: #27282c;
   }
+
   img {
     max-width: 463px;
     object-fit: contain;
   }
 
   @media (--sm) {
+    div:nth-of-type(1){
+      order: 2;
+    }
     &-header {
       font-size: 42px;
     }
+
     &-description {
       font-size: 24px;
     }
+
     img {
       display: block;
       margin-left: auto;
@@ -141,11 +174,16 @@ button:hover {
       &-text {
         font-size: 18px;
         line-height: 1.56;
-
+      }
+      &-text-bold {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 1.56;
       }
     }
 
   }
+
   .ide-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -172,7 +210,7 @@ button:hover {
         gap: 10px;
 
         .tag {
-          padding: 8px 24px;
+          padding: 8px 16px;
           margin-inline: 2px;
           font-size: 12px;
           border-radius: 4px;
@@ -182,19 +220,25 @@ button:hover {
       }
     }
   }
+
   @media (--sm) {
-    .ide{
+    .ide {
       &-logos {
         display: none;
       }
-      &-list{
-
+      &-list {
+        &-item {
+          &-name {
+            font-size: 15px;
+          }
+        }
       }
     }
 
 
   }
 }
+
 
 .key-value-section {
   .illustration {
@@ -229,10 +273,12 @@ button:hover {
       color: rgba(39, 40, 44, 0.7);
     }
   }
+
   @media (--sm) {
     .illustration {
       display: none;
     }
+
     &-list {
       img {
         max-width: 48px;
@@ -254,19 +300,23 @@ button:hover {
 
   &-description {
     max-width: 458px;
+
     p {
       color: rgba(255, 255, 255, 0.6);
       line-height: 1.56;
     }
+
     button {
       padding: 0;
       color: var(--tomato);
     }
   }
+
   @media (--sm) {
     &-screenshot {
       display: none;
     }
+
     &-description {
       padding: 64px 2px;
     }
@@ -293,16 +343,19 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
   }
+
   @media (--sm) {
     img {
       max-width: 156px;
     }
+
     p {
       font-size: 24px;
       max-width: 312px;
       padding-bottom: 24px;
       line-height: 1.33;
     }
+
     .business-logos {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -312,17 +365,20 @@ button:hover {
 .faq-section {
 
   .grid-col-2 {
-    gap: 32px ;
+    gap: 32px;
+
     div {
       max-width: 450px;
     }
   }
+
   .faq {
     font-size: 31px;
     font-weight: bold;
     color: #27282c;
     padding: 24px 1px;
   }
+
   .question {
     font-size: 18px;
     font-weight: 500;
@@ -336,16 +392,19 @@ button:hover {
     line-height: 1.56;
     color: rgba(39, 40, 44, 0.7);
   }
+
   @media (--sm) {
     .faq {
       font-size: 24px;
     }
+
     .question {
       font-size: 14px;
       max-width: 458px;
 
     }
-    .response{
+
+    .response {
       font-size: 12px;
     }
   }
@@ -354,9 +413,11 @@ button:hover {
 .download-section {
   &-description {
     max-width: 460px;
+
     span {
       line-height: 1.56;
     }
+
     h4 {
       font-size: 31px;
       font-weight: 400;
@@ -365,10 +426,12 @@ button:hover {
       color: #27282c;
     }
   }
+
   @media (--sm) {
     .illustration {
       display: none;
     }
+
     h4 {
       font-size: 24px;
       font-weight: 300;
@@ -410,10 +473,12 @@ button:hover {
 
     }
   }
+
   @media (--sm) {
     h5 {
       font-size: 24px;
     }
+
     .input-form {
       max-width: 100%;
     }
@@ -442,6 +507,7 @@ button:hover {
 
   &-rights {
     padding: 0 5px 30px 5px;
+
     p {
       font-size: 15px;
       line-height: 1.6;
@@ -452,10 +518,12 @@ button:hover {
       color: white;
     }
   }
+
   .jb_logo {
     width: 96px;
     height: 115px;
   }
+
   @media (--sm) {
     .jb_logo {
       width: 43px;

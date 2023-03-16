@@ -8,14 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div class="col drop-down-menu-content sm-only ">
+    <button class="flat-button">Overview</button>
+    <button class="flat-button">Toolbox App</button>
+    <button class="flat-button outlined-btn"><span>Buy Now</span></button>
+</div>
 <div class=" sticky divider ">
-    <div class="wt-container">
+    <div class="wt-container ">
+        <div class="drop-down-menu sm-only">
+            <div>
+                <button class="flat-button " id="drop-down-toggle"><span>Overview</span></button>
+            </div>
+        </div>
         <div class="wt-row wt-row_justify_between wt-row_align-items_center page-menu">
             <div>
                 <span>Toolbox</span>
             </div>
             <div class="wt-row wt-row_justify_around wt-row-lg_align-items_baseline">
-                <button class="flat-button">Overview</button>
+                <button class="flat-button link">Overview</button>
                 <button class="flat-button">Toolbox App</button>
                 <button class="flat-button outlined-btn"><span>Buy Now</span></button>
             </div>
@@ -24,7 +34,7 @@
 </div>
 <div class="wt-container">
     <div class="grid-col-2 hero wt-section wt-offset-top-96">
-        <div class="wt-col  wt-col_align-self_center">
+        <div class="wt-col  wt-col_align-self_center wt-offset-top-xlg-48">
             <img src="static/img-1.png"
                  srcset="static/img-1@2x.png 2x,
                      static/img-1@3x.png 3x"
@@ -47,9 +57,10 @@
                 </div>
             </div>
             <div class="wt-col wt-col-6 wt-col-sm-12 ide-description">
-                <p class="ide-description-text">Get access to all JetBrains desktop tools including 10 IDEs,2
+                <p class="ide-description-text ">Get access to all JetBrains desktop tools including 10 IDEs,2
                     extensions and 3 profilers</p>
-                <div class="ide-list wt-offset-top-48 js-ides-details-reference">
+                <h3 class="ide-description-text-bold wt-offset-top-xlg-48 sm-only">10 IDES</h3>
+                <div class="ide-list wt-offset-top-48 wt-offset-top-xlg-24 js-ides-details-reference">
                     <!--                    <div class="ide-list-item">-->
                     <!--                        <span class="ide-list-item-name">IntelliJ IDEA Ultimate</span>-->
                     <!--                        <div class="ide-list-item-tags">-->
@@ -61,21 +72,22 @@
                 </div>
             </div>
         </div>
-        <div class="wt-row wt-row_size_m ides wt-offset-top-96">
+        <div class="wt-row wt-row_size_m ides wt-offset-top-96 wt-offset-top-sm-24">
             <div class="wt-col wt-col-6 ide-logos">
                 <h3 class="ide-count">2 Extensions & 3 Profilers</h3>
                 <div class="ide-logos-grid extension-plugins wt-offset-top-24">
                 </div>
             </div>
             <div class="wt-col wt-col-6 ide-description">
+                <h3 class="ide-description-text-bold wt-offset-top-xlg-48 sm-only">2 Extensions & 3 Profilers</h3>
                 <div class="ide-list wt-offset-top-48 js-plugin-extensions-reference">
-<!--                    <div class="ide-list-item">-->
-<!--                        <span class="ide-list-item-name">IntelliJ IDEA Ultimate</span>-->
-<!--                        <div class="ide-list-item-tags">-->
-<!--                            <span class="tag">Kotlin</span>-->
-<!--                            <span class="tag">Java</span>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="ide-list-item">-->
+                    <!--                        <span class="ide-list-item-name">IntelliJ IDEA Ultimate</span>-->
+                    <!--                        <div class="ide-list-item-tags">-->
+                    <!--                            <span class="tag">Kotlin</span>-->
+                    <!--                            <span class="tag">Java</span>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -129,13 +141,13 @@
         <div class="wt-col wt-col_align-self_center preview-description ">
             <h5>Maintain your tools with the Toolbox App</h5>
             <p class="wt-offset-top-24">Simple installations, updates, and more</p>
-            <button class="flat-button wt-offset-top-12"><span>Learn more</span></button>
+            <button  class="flat-button wt-offset-top-12"><span>Learn more</span></button>
         </div>
     </div>
 </div>
 <div class="testimonial  wt-offset-top-96">
     <div class="wt-container grid-col-2">
-        <p >Trusted by 320,083 businesses worldwide</p>
+        <p>Trusted by 320,083 businesses worldwide</p>
         <div class="business-logos">
             <!--           <div class="wt-col wt-col_align-self_center ">-->
             <!--               <img src="static/google-2015-logo.png"-->
@@ -195,7 +207,7 @@
             <h5>Stay updated</h5>
             <div class="input-form wt-row wt-col_align-self_center wt-row_justify_between wt-offset-top-24">
                 <label class="wt-col">
-                    <input  placeholder="Your email"/>
+                    <input placeholder="Your email"/>
                 </label>
                 <img class="wt-col" src="static/ic_enter.png" width="24" alt="ic_twitter"/>
             </div>
@@ -228,8 +240,8 @@
     <div class="wt-row useful-links  wt-container ">
         <div class=" wt-col wt-col-sm-12 wt-offset-top-24 "
         ><img class="jb_logo" src="static/jb.png"
-                  srcset="static/jb@2x.png 2x,static/jb@3x.png 3x"
-                  alt="jetbrains_logo"/></div>
+              srcset="static/jb@2x.png 2x,static/jb@3x.png 3x"
+              alt="jetbrains_logo"/></div>
         <div class="wt-col wt-col-sm-inline  wt-offset-top-24">
             <h6>About JetBrains</h6><br>
             <a href="#" class="link"><span>Company</span></a><br>
@@ -248,9 +260,11 @@
                                      srcset="static/ic_twitter_bw@2x.png 2x,static/ic_twitter_bw@3x.png 3x"
                                      alt="ic_twitter_bw"/></a>
                 <a class="link"><img class="wt-col" src="static/ic_linkedin.png"
-                        srcset="static/ic_linkedin@2x.png 2x,static/ic_linkedin@3x.png 3x" alt="ic_linkedin"/></a>
+                                     srcset="static/ic_linkedin@2x.png 2x,static/ic_linkedin@3x.png 3x"
+                                     alt="ic_linkedin"/></a>
                 <a class="link"><img class="wt-col" src="static/ic_youtube_bw.png"
-                        srcset="static/ic_youtube_bw@2x.png 2x,static/ic_youtube_bw@3x.png 3x" alt="ic_youtube_bw"/></a>
+                                     srcset="static/ic_youtube_bw@2x.png 2x,static/ic_youtube_bw@3x.png 3x"
+                                     alt="ic_youtube_bw"/></a>
             </div>
         </div>
 

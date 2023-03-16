@@ -16,12 +16,15 @@ import dottrace from "@jetbrains/logos/dottrace/dottrace.svg";
 
 const IDE_PREFIX = "ide";
 const EXTENSION_PREFIX = "ex"
-const  isMobile =  ( window.innerWidth <= 640 )
+const isMobile = (window.innerWidth <= 640)
 const idesLogoListContainer = document.querySelector(".js-ides-reference")
 const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
 const idesDetailsReference = document.querySelector(".js-ides-details-reference")
 const pluginsDetailsReference = document.querySelector(".js-plugin-extensions-reference")
 const trustedBusinessLogosContainer = document.querySelector(".business-logos")
+let dropDownToggle;
+let dropDownMenu;
+let isDropdownVisible = false
 
 /**
  *
@@ -29,9 +32,9 @@ const trustedBusinessLogosContainer = document.querySelector(".business-logos")
  */
 const idesList = [
   {name: "intellijIdeaCe", logo: intellijIdea, label: "IntelliJ IDEA Ultimate", tags: ["Kotlin", "Java"]},
-  {name: "webstorm", logo: webstorm, label: "WebStorm", tags: ["Javascript", "Typescript"]},
+  {name: "webstorm", logo: webstorm, label: "WebStorm", tags: ["Javascript"]},
   {name: "resharper", logo: resharper, label: "ReSharper Ultimate", tags: ["C++"]},
-  {name: "rider", logo: rider, label: "Rider", tags: ["C#", ".NET"]},
+  {name: "rider", logo: rider, label: "Rider", tags: ["C#",]},
   {name: "appcode", logo: appcode, label: "AppCode", tags: ["IOS", "SWIFT"]},
   {name: "clion", logo: clion, label: "CLion", tags: ["C", "C++"]},
   {name: "rubymine", logo: rubymine, label: "RubyMine", tags: ["Ruby", "Rails"]},
@@ -52,23 +55,23 @@ const extensionAndProfilers = [
   {name: "dottrace", logo: dottrace, label: "dotTrace", tags: [".Net", "Test"]}
 
 ]
-const trustedBusinessLogosImageNameList = ["google-2015-logo","hphewlett-packardlogo","samsung-logo",
-  "salesforce-2","expedia","twitter-logo-blue"]
+const trustedBusinessLogosImageNameList = ["google-2015-logo", "hphewlett-packardlogo", "samsung-logo",
+  "salesforce-2", "expedia", "twitter-logo-blue"]
 
 
 idesList.forEach(it => {
-  addLogoToContainer(it, idesLogoListContainer,`logo_${IDE_PREFIX}`)
-  addToDetailsContainer(it,idesDetailsReference,IDE_PREFIX)
+  addLogoToContainer(it, idesLogoListContainer, `logo_${IDE_PREFIX}`)
+  addToDetailsContainer(it, idesDetailsReference, IDE_PREFIX)
 
 })
 
 extensionAndProfilers.forEach(it => {
-  addLogoToContainer(it, extensionPluginsLogosContainer,`logo_${EXTENSION_PREFIX}`)
-  addToDetailsContainer(it,pluginsDetailsReference,EXTENSION_PREFIX)
+  addLogoToContainer(it, extensionPluginsLogosContainer, `logo_${EXTENSION_PREFIX}`)
+  addToDetailsContainer(it, pluginsDetailsReference, EXTENSION_PREFIX)
 })
-trustedBusinessLogosImageNameList.forEach(it =>{
+trustedBusinessLogosImageNameList.forEach(it => {
   const div = document.createElement("div")
-  div.classList.add("wt-col","wt-col_align-self_center")
+  div.classList.add("wt-col", "wt-col_align-self_center")
   const img = document.createElement("img")
   img.src = `static/${it}.png`
   img.alt = it
@@ -83,7 +86,7 @@ trustedBusinessLogosImageNameList.forEach(it =>{
  * @param container {HTMLElement}
  * @param idPrefix
  */
-function addLogoToContainer(ide, container,idPrefix = '') {
+function addLogoToContainer(ide, container, idPrefix = '') {
   const img = document.createElement("img")
   img.src = ide.logo
   img.alt = ide.name
@@ -97,12 +100,12 @@ function addLogoToContainer(ide, container,idPrefix = '') {
  * @param container {HTMLElement}
  * @param idPrefix
  */
-function addToDetailsContainer(ide, container,idPrefix = '') {
+function addToDetailsContainer(ide, container, idPrefix = '') {
   const itemDiv = document.createElement("div")
   const name = document.createElement("span")
   const tagsDiv = document.createElement("div")
   const id = `${idPrefix}_${ide.name}`
-  itemDiv.setAttribute("id",id)
+  itemDiv.setAttribute("id", id)
   itemDiv.classList.add("ide-list-item")
   name.classList.add("ide-list-item-name")
   tagsDiv.classList.add("ide-list-item-tags")
@@ -114,24 +117,31 @@ function addToDetailsContainer(ide, container,idPrefix = '') {
     tag.textContent = it.toString()
     tagsDiv.appendChild(tag)
   })
-  if(!isMobile){
+  if (!isMobile) {
     const logoRef = document.querySelector(`#logo_${id}`)
 
-    itemDiv.addEventListener("mouseover",(it)=>{
+    itemDiv.addEventListener("mouseover", (it) => {
       const parent = logoRef.parentNode
       // name.classList.remove("ide-list-item-name")
       for (let child of parent.children) {
-        if(child.id !== logoRef.id){
+        if (child.id !== logoRef.id) {
           child.classList.add("opaque-element")
         }
       }
     })
-    itemDiv.addEventListener("mouseout",(it)=>{
+    itemDiv.addEventListener("mouseout", (it) => {
       // name.classList.add("ide-list-item-name")
       for (let child of logoRef.parentNode.children) {
         child.classList.remove("opaque-element")
       }
     })
+  } else {
+    const img = document.createElement("img")
+    img.src = ide.logo
+    img.alt = ide.name
+    img.width = 48
+    img.classList.add("sm-only")
+    itemDiv.appendChild(img)
   }
 
   itemDiv.appendChild(name)
@@ -140,4 +150,27 @@ function addToDetailsContainer(ide, container,idPrefix = '') {
   container.appendChild(itemDiv)
 }
 
-console.log(`Is Mobile ${isMobile}`)
+function changeDropdownMenu() {
+
+  if (isDropdownVisible) {
+    dropDownMenu.style.height = "0px"
+    dropDownMenu.style.top = "-30px"
+  } else {
+    dropDownMenu.style.height = "auto"
+    dropDownMenu.style.top = "0"
+  }
+  isDropdownVisible = !isDropdownVisible
+}
+
+if (isMobile) {
+  if (!dropDownToggle) {
+    dropDownToggle = document.querySelector("#drop-down-toggle")
+    dropDownToggle.addEventListener("click", changeDropdownMenu)
+    dropDownMenu = document.querySelector(".drop-down-menu-content")
+    dropDownMenu.addEventListener("click", () => {
+      if (isDropdownVisible) changeDropdownMenu()
+    })
+
+
+  }
+}
