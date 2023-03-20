@@ -16,7 +16,7 @@ import dottrace from "@jetbrains/logos/dottrace/dottrace.svg";
 
 const IDE_PREFIX = "ide";
 const EXTENSION_PREFIX = "ex"
-const isMobile = (window.innerWidth <= 640)
+let isMobile = (window.innerWidth <= 640)
 const idesLogoListContainer = document.querySelector(".js-ides-reference")
 const extensionPluginsLogosContainer = document.querySelector(".extension-plugins")
 const idesDetailsReference = document.querySelector(".js-ides-details-reference")
@@ -59,25 +59,37 @@ const trustedBusinessLogosImageNameList = ["google-2015-logo", "hphewlett-packar
   "salesforce-2", "expedia", "twitter-logo-blue"]
 
 
-idesList.forEach(it => {
-  addLogoToContainer(it, idesLogoListContainer, `logo_${IDE_PREFIX}`)
-  addToDetailsContainer(it, idesDetailsReference, IDE_PREFIX)
+function setup() {
+  idesList.forEach(it => {
+    addLogoToContainer(it, idesLogoListContainer, `logo_${IDE_PREFIX}`)
+    addToDetailsContainer(it, idesDetailsReference, IDE_PREFIX)
 
-})
+  })
 
-extensionAndProfilers.forEach(it => {
-  addLogoToContainer(it, extensionPluginsLogosContainer, `logo_${EXTENSION_PREFIX}`)
-  addToDetailsContainer(it, pluginsDetailsReference, EXTENSION_PREFIX)
-})
-trustedBusinessLogosImageNameList.forEach(it => {
-  const div = document.createElement("div")
-  div.classList.add("wt-col", "wt-col_align-self_center")
-  const img = document.createElement("img")
-  img.src = `static/${it}.png`
-  img.alt = it
-  div.appendChild(img)
-  trustedBusinessLogosContainer.appendChild(div)
-})
+  extensionAndProfilers.forEach(it => {
+    addLogoToContainer(it, extensionPluginsLogosContainer, `logo_${EXTENSION_PREFIX}`)
+    addToDetailsContainer(it, pluginsDetailsReference, EXTENSION_PREFIX)
+  })
+  trustedBusinessLogosImageNameList.forEach(it => {
+    const div = document.createElement("div")
+    div.classList.add("wt-col", "wt-col_align-self_center")
+    const img = document.createElement("img")
+    img.src = `static/${it}.png`
+    img.alt = it
+    div.appendChild(img)
+    trustedBusinessLogosContainer.appendChild(div)
+  })
+
+  if (!dropDownToggle) {
+    dropDownToggle = document.querySelector("#drop-down-toggle")
+    dropDownToggle.addEventListener("click", changeDropdownMenu)
+    dropDownMenu = document.querySelector(".drop-down-menu-content")
+    dropDownMenu.addEventListener("click", () => {
+      if (isDropdownVisible) changeDropdownMenu()
+    })
+
+  }
+}
 
 
 /**
@@ -117,32 +129,32 @@ function addToDetailsContainer(ide, container, idPrefix = '') {
     tag.textContent = it.toString()
     tagsDiv.appendChild(tag)
   })
-  if (!isMobile) {
-    const logoRef = document.querySelector(`#logo_${id}`)
+  const logoRef = document.querySelector(`#logo_${id}`)
 
-    itemDiv.addEventListener("mouseover", (it) => {
-      const parent = logoRef.parentNode
-      // name.classList.remove("ide-list-item-name")
-      for (let child of parent.children) {
-        if (child.id !== logoRef.id) {
-          child.classList.add("opaque-element")
-        }
+  itemDiv.addEventListener("mouseover", (it) => {
+    const parent = logoRef.parentNode
+    // name.classList.remove("ide-list-item-name")
+    for (let child of parent.children) {
+      if (child.id !== logoRef.id) {
+        child.classList.add("opaque-element")
       }
-    })
-    itemDiv.addEventListener("mouseout", (it) => {
-      // name.classList.add("ide-list-item-name")
-      for (let child of logoRef.parentNode.children) {
-        child.classList.remove("opaque-element")
-      }
-    })
-  } else {
-    const img = document.createElement("img")
-    img.src = ide.logo
-    img.alt = ide.name
-    img.width = 48
-    img.classList.add("sm-only")
-    itemDiv.appendChild(img)
-  }
+    }
+  })
+  itemDiv.addEventListener("mouseout", (it) => {
+    // name.classList.add("ide-list-item-name")
+    for (let child of logoRef.parentNode.children) {
+      child.classList.remove("opaque-element")
+    }
+  })
+
+
+  const img = document.createElement("img")
+  img.src = ide.logo
+  img.alt = ide.name
+  img.width = 48
+  img.classList.add("sm-only")
+  itemDiv.appendChild(img)
+
 
   itemDiv.appendChild(name)
   itemDiv.appendChild(tagsDiv)
@@ -162,15 +174,9 @@ function changeDropdownMenu() {
   isDropdownVisible = !isDropdownVisible
 }
 
-if (isMobile) {
-  if (!dropDownToggle) {
-    dropDownToggle = document.querySelector("#drop-down-toggle")
-    dropDownToggle.addEventListener("click", changeDropdownMenu)
-    dropDownMenu = document.querySelector(".drop-down-menu-content")
-    dropDownMenu.addEventListener("click", () => {
-      if (isDropdownVisible) changeDropdownMenu()
-    })
+setup()
 
 
-  }
-}
+
+
+
